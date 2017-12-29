@@ -44,7 +44,25 @@ public class test {
 
     public static void main(String[] args) {
         test t = new test();
-        String str = "abc=你好";
+        String str =""; 
+        str = str + "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">";
+        str = str + "<soap12:Body>";
+        str = str + "<MsgData104 xmlns=\"http://tempuri.org/\">";
+        str = str + "<name>104測試</name>";
+        str = str + "<email>104test@104.com</email>";
+        str = str + "<phone></phone>";
+        str = str + "<mobile>0910104104</mobile>";
+        str = str + "<class_info>12,000堂電腦線上課程</class_info>";
+        str = str + "<branch_id>HE</branch_id>";
+        str = str + "<inputdate>2017/12/29</inputdate>";
+        str = str + "<message>你的職場份量是「M」</message>";
+        str = str + "<pno>10612B000009</pno>";
+        str = str + "<mad_no>99005127</mad_no>";
+        str = str + "<gift></gift>";
+        str = str + "<fromurl>https://m.learn.s104.com.tw/mobile/project/gjun20171228/index.html</fromurl>";
+        str = str + "</MsgData104>";
+        str = str + "</soap12:Body>";
+        str = str + "</soap12:Envelope>";
         try{
         byte[] test1 = new byte[str.getBytes("utf8").length];
         test1 = str.getBytes("utf8");
@@ -59,7 +77,7 @@ public class test {
             System.out.println(ex);
         }
         try {
-            String aaa = t.callSoap("http://54.173.144.156:3000/java", str);
+            String aaa = t.callSoap("https://www.pcschool.com.tw/wsb2b.asmx?WSDL", str);
             System.out.println(aaa);
         } catch (Exception ex) {
             System.out.println(ex);
