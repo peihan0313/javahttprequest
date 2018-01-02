@@ -13,7 +13,7 @@ public class test {
             con.setDoOutput(true);
             con.setRequestMethod("POST");
 
-            /* con.setRequestProperty("Content-Type","application/soap+xml");*/
+            con.setRequestProperty("Content-Type","application/soap+xml");
             OutputStream reqStream = con.getOutputStream();
             reqStream.write(body.getBytes("UTF-8"));
             // java.io.DataOutputStream dos = new java.io.DataOutputStream(con.getOutputStream());
@@ -48,14 +48,14 @@ public class test {
         str = str + "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">";
         str = str + "<soap12:Body>";
         str = str + "<MsgData104 xmlns=\"http://tempuri.org/\">";
-        str = str + "<name>104´ú¸Õ</name>";
+        str = str + "<name>104æ¸¬è©¦</name>";
         str = str + "<email>104test@104.com</email>";
         str = str + "<phone></phone>";
         str = str + "<mobile>0910104104</mobile>";
-        str = str + "<class_info>12,000°ó¹q¸£½u¤W½Òµ{</class_info>";
+        str = str + "<class_info>12,000å ‚é›»è…¦ç·šä¸Šèª²ç¨‹</class_info>";
         str = str + "<branch_id>HE</branch_id>";
         str = str + "<inputdate>2017/12/29</inputdate>";
-        str = str + "<message>§AªºÂ¾³õ¥÷¶q¬O¡uM¡v</message>";
+        str = str + "<message>ä½ çš„è·å ´åˆ†é‡æ˜¯ã€ŒMã€</message>";
         str = str + "<pno>10612B000009</pno>";
         str = str + "<mad_no>99005127</mad_no>";
         str = str + "<gift></gift>";
@@ -69,16 +69,12 @@ public class test {
         System.out.println(test1.length);
         String bytesToString = new String(test1,StandardCharsets.UTF_8);
         System.out.println("bbb: "+bytesToString);
-        for(int i=0 ;i<test1.length;i++){
-            System.out.println((char)test1[i]);
-        }
-        System.out.println(str);
         }catch(Exception ex){
             System.out.println(ex);
         }
         try {
             String aaa = t.callSoap("https://www.pcschool.com.tw/wsb2b.asmx?WSDL", str);
-            System.out.println(aaa);
+            System.out.println("feedback:"+aaa);
         } catch (Exception ex) {
             System.out.println(ex);
         }
